@@ -1,0 +1,98 @@
+<div class="container-fluid">
+  <div class="row no-gutters container-row" style="height: 100%; width: 100%">
+    <div id="navDiv">
+      <div id="logo-container" [routerLink]="['/admin']">
+        <img src="./assets/image/logo_texte.png" alt="logo">
+      </div>
+      <ul id="tabContainer">
+        <li class="tabItem" [routerLink]="['/admin/home']" [ngClass]="selectedTab === 'home' ? 'selected mat-elevation-z3' : ''" (click)="selectTab('home')">
+          <div class="iconContainer">
+            <mat-icon svgIcon="home"></mat-icon>
+          </div>
+          <div class="tabTxt">
+            Accueil
+          </div>
+        </li>
+        <li class="tabItem" [routerLink]="['/admin/users']" [ngClass]="selectedTab === 'users' ? 'selected mat-elevation-z3' : ''" (click)="selectTab('users')">
+          <div class="iconContainer">
+            <mat-icon svgIcon="user"></mat-icon>
+          </div>
+          <div class="tabTxt">
+            Utilisateurs
+          </div>
+        </li>
+        <li class="tabItem" [routerLink]="['/admin/places']" [ngClass]="selectedTab === 'places' ? 'selected mat-elevation-z3' : ''" (click)="selectTab('places')">
+          <div class="iconContainer">
+            <mat-icon svgIcon="place"></mat-icon>
+          </div>
+          <div class="tabTxt">
+            Lieux
+          </div>
+        </li>
+        <!--<li class="tabItem">
+          <div class="iconContainer">
+            <mat-icon svgIcon="message"></mat-icon>
+          </div>
+          <div class="tabTxt">
+            Messages
+          </div>
+        </li>-->
+        <li class="tabItem" [routerLink]="['/admin/feedbacks']" [ngClass]="selectedTab === 'feedbacks' ? 'selected mat-elevation-z3' : ''" (click)="selectTab('feedbacks')">
+          <div class="iconContainer">
+            <mat-icon svgIcon="feedback"></mat-icon>
+          </div>
+          <div class="tabTxt">
+            Feedbacks
+          </div>
+        </li>
+        <li class="tabItem" [routerLink]="['/admin/reviews']" [ngClass]="selectedTab === 'reviews' ? 'selected mat-elevation-z3' : ''" (click)="selectTab('reviews')">
+          <div class="iconContainer">
+            <mat-icon svgIcon="review"></mat-icon>
+          </div>
+          <div class="tabTxt">
+            Avis
+          </div>
+        </li>
+        <!--<li class="tabItem">
+          <div class="iconContainer">
+            <mat-icon svgIcon="media"></mat-icon>
+          </div>
+          <div class="tabTxt">
+            Médias
+          </div>
+        </li>
+        <li class="tabItem">
+          <div class="iconContainer">
+            <mat-icon svgIcon="event"></mat-icon>
+          </div>
+          <div class="tabTxt">
+            Evenements
+          </div>
+        </li>-->
+      </ul>
+      <div id="leaveBO" [routerLink]="['']">Quitter</div>
+    </div>
+    <div id="contentDiv" class="col">
+      <div class="row no-gutters" style="height: 100%; width: 100%">
+        <div id="header" class="col-12 mat-elevation-z1">
+          <div id="tabDiv" [ngSwitch]="selectedTab">
+            <span *ngSwitchCase="'home'">Accueil</span>
+            <span *ngSwitchCase="'users'">Utilisateurs</span>
+            <span *ngSwitchCase="'places'">Lieux</span>
+            <span *ngSwitchCase="'feedbacks'">Feedbacks</span>
+            <span *ngSwitchCase="'reviews'">Avis</span>
+          </div>
+          <div id="profileDiv">
+            <div id="profileName">{{userProfile.username}}</div>
+            <div id="profilePic">
+              <img [src]="userProfile.image" alt="profilePic" height="50" width="50">
+            </div>
+          </div>
+        </div>
+        <div id="content" class="col-12">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

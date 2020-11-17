@@ -1,0 +1,89 @@
+@import "../../scss/variables";
+@import "~bootstrap/scss/bootstrap-reboot";
+
+.container-fluid-nav {
+  margin-top: 150px;
+}
+
+.container-nav .selected {
+  background-color: $violet_main;
+  color: $white;
+}
+
+.btn-nav {
+  height: 35px;
+  font-size: 13px;
+  background-color: $white;
+  color: $violet_main;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  border: none;
+  min-width: 100px;
+  @include media-breakpoint-down(md) {
+    margin-bottom: 20px;
+  }
+}
+
+.btn-nav:hover {
+  cursor: pointer;
+}
+
+.title-result {
+  color: $violet_sombre;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  @include media-breakpoint-down(sm) {
+    font-size: 1.12rem;
+  }
+}
+
+.sub-col-result {
+  width: inherit;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.list-result {
+}
+
+.list-result-item {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 0;
+}
+
+.list-result-item:hover {
+  cursor: pointer;
+}
+
+.item-logo {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-right: 0.75rem;
+}
+
+.item-title {
+  color: $violet_sombre;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.item-title:hover {
+  text-decoration: $violet_sombre underline;
+}
+
+.btn-more {
+  color: $violet_sombre;
+  width: inherit;
+  background-color: $white;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.info-no-result {
+  color: $violet_sombre;
+  display: inline-block;
+}

@@ -1,0 +1,60 @@
+@import "../../../../scss/variables";
+@import "../../../../../node_modules/bootstrap/scss/bootstrap-reboot";
+
+/* Table Css */
+
+#content {
+  width: 100%;
+  background-color: white;
+}
+
+thead {
+  border-bottom: 1px solid $gris_clair;
+}
+
+thead th {
+  color: #afb0b4;
+}
+
+thead th:hover {
+  cursor: pointer;
+}
+
+thead th.filter-up::after {
+  content: "▴";
+  margin-left: 5px;
+}
+
+thead th.filter-down::after {
+  content: "▾";
+  margin-left: 5px;
+}
+
+td, th {
+  font-weight: normal;
+  padding: 10px;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+tbody tr {
+  font-size: 14px;
+}
+
+tbody tr:nth-child(2n+0) {
+  background-color: $gris_clair;
+}
+
+tbody tr:hover {
+  background-color: $gris-sombre;
+  cursor: pointer;
+}
+
+th button {
+  color: $violet_main;
+  font-size: 10px;
+  padding: 0 10px 0 10px;
+  background-color: $gris_clair;
+  border-radius: 3px;
+}

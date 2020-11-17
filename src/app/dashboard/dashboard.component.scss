@@ -1,0 +1,332 @@
+@import "../../scss/variables";
+@import "~bootstrap/scss/bootstrap-reboot";
+
+#main-container {
+  margin-top: 150px;
+
+  @include media-breakpoint-down(md) {
+    margin-top: 130px;
+  }
+}
+
+.right-parts-title {
+  color: $violet_main;
+  font-size: 16px
+}
+
+.right-parts-ul {
+  margin: 0;
+  list-style: none;
+  //padding: 0 0 15px 0;
+  padding: 0 0 0 0;
+  border-radius: 5px;
+
+  &.suggestion {
+    padding-bottom: 15px;
+  }
+}
+
+.avisItem {
+  height: 50px;
+  width: 100%;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.avisImgContainer {
+  position: relative;
+}
+
+.avisImgContainer img {
+  border-radius: 50%;
+}
+
+.avisTxt {
+  height: 35px;
+  width: calc(100% - 145px);
+  margin-left: 10px;
+  color: $violet_main;
+}
+
+.avisTitle {
+  height: 17.5px;
+  width: 100%;
+  font-size: 13px;
+
+  @include media-breakpoint-down(md) {
+    font-size: 12px;
+  }
+}
+
+.avisTitle:hover {
+  text-decoration: $violet_main underline;
+  cursor: pointer;
+}
+
+.avisTitle span {
+  margin-left: 1px;
+}
+
+.avisReview {
+  height: 17.5px;
+  width: 100%;
+}
+
+.avisReview mat-icon {
+  height: 15px;
+  width: 15px;
+
+  @include media-breakpoint-down(md) {
+    height: 12px;
+    width: 12px;
+  }
+}
+
+.avisBtnContainer {
+  margin-top: 5px;
+  height: 25px;
+  width: 100px;
+}
+
+.avisBtn {
+  height: 100%;
+  width: 100%;
+  color: $violet_clair;
+  border: 2px solid $violet_clair;
+  border-radius: 5px;
+  background-color: $white;
+  text-align: center;
+  font-size: 14px;
+  line-height: 22px;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}
+
+.avisBtn:hover {
+  cursor: pointer;
+  background-color: $violet_clair;
+  color: $white;
+}
+
+.suggItem {
+  height: 100px;
+  width: 100%;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+}
+
+.suggTopPart {
+  height: 35px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.pastilleType {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 75px;
+  height: 15px;
+  color: white;
+  background-color: #16A085;
+  font-size: 11px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+#suggBlockTitle {
+  margin-top: 50px;
+
+  @include media-breakpoint-down(md) {
+    margin-top: 30px;
+  }
+}
+
+#noPendingReviews {
+  padding: 8px 25px 8px 25px;
+  color: #63585E;
+  font-size: 14px;
+}
+
+#noPendingSuggestions {
+  padding: 8px 25px 8px 25px;
+  color: #63585E;
+  font-size: 14px;
+}
+
+#suggBlock {
+  @include media-breakpoint-down(md) {
+    margin-bottom: 30px;
+  }
+}
+
+.suggBotPart {
+  height: 20px;
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.fimgContainer {
+  height: 100%;
+  width: 190px;
+  position: relative;
+}
+
+.fimg {
+  border-radius: 50%;
+  vertical-align: baseline;
+}
+
+.fimgContainer .second {
+  transform: translateX(-12px);
+}
+
+.fimgContainer .third {
+  transform: translateX(-22px);
+}
+
+.fimgContainer .fourth {
+  transform: translateX(-32px);
+}
+
+.fimgContainer .fifth {
+  transform: translateX(-42px);
+}
+
+.fimgContainer .sixth {
+  font-size: 9px;
+  color: #998DA0;
+  position: absolute;
+  width: 100px;
+  left: 80px;
+  top: 4px;
+}
+
+.compatContainer {
+  width: auto;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.compatTxt {
+  color: $violet_main;
+  margin-left: 5px;
+  position: relative;
+  top: -2px;
+  font-size: 15px;
+}
+
+.compatCircle {
+  width: 20px;
+  height: 20px;
+  background-color: #6CAF1F;
+  border-radius: 50%;
+  float: left;
+}
+
+.suggLink {
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  color: $violet_main;
+  font-size: 13px;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.date-container {
+  height: auto;
+  background-color: $gris_clair;
+  color: $violet_main;
+  font-size: 16px;
+  text-decoration: underline;
+  top: 110px;
+
+  @include media-breakpoint-down(md) {
+    font-size: 10px;
+  }
+}
+
+.actu-container {
+  height: auto;
+  margin: 0;
+  list-style: none;
+}
+
+.actuItem {
+  height: auto;
+  width: 100%;
+  background-color: $white;
+  margin-bottom: 15px;
+  padding: 8px 25px 8px 25px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.actuItem img {
+  position: absolute;
+  top: 0;
+  left: -15.5px;
+  border-radius: 50%;
+}
+
+.actuTitle {
+  height: 20px;
+  width: 100%;
+  color: $violet_sombre;
+  font-size: 14px;
+}
+
+.actuTitle:hover {
+  text-decoration: $violet_sombre underline;
+  cursor: pointer;
+}
+
+.actuContent {
+  width: 100%;
+  height: auto;
+  color: $violet_main;
+  font-size: 10px;
+  margin-top: 10px;
+}
+
+.actuContent p {
+  margin-bottom: unset;
+}
+
+#suggestion-feedback {
+  margin-top: 20px;
+  display: flex;
+  
+  button:not(:first-child) {
+    margin-left: 10px;
+  }
+}
+
+.navbtn {
+  height: 30px;
+  text-align: center;
+  font-size: 12px;
+  background-color: $white;
+  color: $violet_main;
+  border: none;
+  min-width: 90px;
+}
+
+.navbtn:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,369 @@
+@import "../../scss/variables";
+@import "~bootstrap/scss/bootstrap-reboot";
+
+#main-container {
+  margin-top: 150px;
+
+  @include media-breakpoint-down(md) {
+    margin-top: 130px;
+  }
+}
+
+#profileDiv {
+  background-color: white;
+  padding: 15px;
+  position: relative;
+}
+
+#profilePic-container {
+  height: 100px;
+  width: 100%;
+}
+
+#editProfileBtn {
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border: none;
+  border-radius: 15px;
+
+  color: $violet_main;
+  position: relative;
+}
+
+#editProfileBtn:hover {
+  cursor: pointer;
+}
+
+#editIcon {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#profilePic {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+#profileName-container {
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  position: relative;
+  padding-top: 10px;
+}
+
+#profileName {
+  font-size: 14px;
+  color: $violet_sombre;
+}
+
+.aboBtn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width : 100px;
+  height: 20px;
+  font-size: 11px;
+  border: none;
+  border-radius: 10px;
+}
+
+#aboAdd {
+  background-color: $violet_sombre;
+  color: $gris_clair;
+}
+
+#aboAdded {
+  background-color: $violet_clair;
+  color: $violet_sombre;
+}
+
+#profileBio-container {
+  width: 100%;
+  padding-top: 15px;
+}
+
+#profileBio-Title {
+  color: $violet_clair;
+  font-size: 14px;
+}
+
+#profileBio-Content {
+  margin-top: 10px;
+  color: $violet_sombre;
+  font-size: 11px;
+  text-align: justify;
+  margin-bottom: unset;
+}
+
+#profileCity-container {
+  width: 100%;
+  margin-top: 15px;
+  height: 25px;
+}
+
+#profileCity-container mat-icon{
+  height: 20px;
+  width: 20px;
+  color: $violet_sombre;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#profileCity-text {
+  color: $violet_sombre;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+#navbar-container {
+  height: 35px;
+}
+
+.navbtn {
+  height: 100%;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 13px;
+  background-color: $white;
+  color: $violet_main;
+  margin-right: 20px;
+  border: none;
+  min-width: 100px;
+}
+
+.navbtn:hover {
+  cursor: pointer;
+}
+
+#navbar-container .selected {
+  background-color: $violet_main;
+  color: $white;
+}
+
+#reviewContainer {
+  margin-top: 30px;
+}
+
+.reviewItem {
+  width: 260px;
+  background-color: white;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  padding: 15px;
+  text-align: center;
+}
+
+.reviewItem-pictContainer {
+  height: 50px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.reviewItem-pictContainer img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.reviewItem-Name {
+  font-size: 13px;
+  color: $violet_sombre;
+}
+
+.reviewItem-Name:hover {
+  text-decoration: $violet_sombre underline;
+  cursor: pointer;
+}
+
+.reviewItem-rateContainer {
+  height: 16px;
+  width: 100%;
+}
+
+app-rater .star {
+  color: $violet_main;
+  height: 16px;
+  width: 16px;
+}
+
+.reviewItem-date {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 12px;
+  color: $violet_clair;
+}
+
+.reviewItem-txt {
+  color: $violet_sombre;
+  text-align: initial;
+  font-size: 11px;
+  margin-top: 15px;
+  margin-bottom: unset;
+}
+
+.reviewItem-media {
+  margin-top: 15px;
+  width: 100%;
+  height: 130px;
+}
+
+.reviewItem-media img {
+  height: inherit;
+  width: inherit;
+}
+
+#tabSpinner {
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  transform: translateX(-50%);
+}
+
+#placeFollowed {
+  margin-top: 10px;
+}
+
+.placeItem {
+  width: 260px;
+  background-color: white;
+  padding: 10px 10px 10px 10px;
+  //height: 80px;
+  margin-top: 20px;
+  @include media-breakpoint-down(lg) {
+    margin-right: 20px;
+  }
+  @include media-breakpoint-down(md) {
+    margin-right: unset;
+  }
+}
+
+#placeContainer {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.placeTop {
+  height: 30px;
+  width: 100%;
+  position: relative;
+}
+
+.placeTop img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.placeTitle {
+  width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  font-size: 12px;
+  margin-left: 5px;
+  color: $violet_sombre;
+  position: absolute;
+  top: 5px;
+}
+
+.placeTitle:hover {
+  cursor: pointer;
+  text-decoration: $violet_sombre underline;
+}
+
+.placeAboBtn {
+  border: none;
+  border-radius: 10px;
+  position: absolute;
+  top: 35px;
+  right: 0;
+  width: 80px;
+  height: 20px;
+  text-align: center;
+  font-size: 11px;
+}
+
+.placeAboBtn-sub {
+  color: $violet_sombre;
+  background-color: $violet_clair;
+}
+
+.placeAboBtn-unsub {
+  color: $gris_clair;
+  background-color: $violet_sombre;
+}
+
+.placeAboBtn:hover {
+  cursor: pointer;
+}
+
+.placeBottom {
+  height: 30px;
+  width: 100%;
+}
+
+.placeCompat {
+  width: 20px;
+  height: 20px;
+  background-color: green;
+  position: relative;
+  top: 5px;
+  left: 5px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.placeCompatScore {
+  font-size: 11px;
+  margin-left: 7px;
+  color: $violet_sombre;
+}
+
+#pageSpinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#secondPart {
+  @include media-breakpoint-down(md) {
+    margin-top: 30px;
+  }
+}
+
+.middlePlaceItem {
+  margin-left: 20px;
+  margin-right: 20px;
+  @include media-breakpoint-down(lg) {
+    margin-right: unset;
+    margin-left: unset;
+  }
+}
+
+.noDataBandeau {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  line-height: 50px;
+  text-align: center;
+  font-size: 15px;
+  margin-top: 20px;
+}

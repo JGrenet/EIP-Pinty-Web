@@ -1,0 +1,171 @@
+<div id="main-container" class="container" *ngIf="pageLoaded">
+  <div class="row">
+    <div class="col-lg-3 col-md-4">
+      <div class="row">
+        <div class="col-12 ">
+          <div id="profileDiv" class="mat-elevation-z2">
+            <div id="profilePic-container">
+              <img id="profilePic" class="mat-elevation-z2" src="{{placeProfile.image}}">
+            </div>
+            <div id="profileName-container">
+              <span id="profileName">{{placeProfile.name}}</span>
+              <app-rater [rate]="placeProfile.rating" [color]="'#63585E'" [width]="16" [height]="16"></app-rater>
+              <app-typeChip [type]="placeProfile.types" style="left: calc(50% - 37.5px);; position: relative"></app-typeChip>
+              <app-compat [compatScore]="placeProfile.compatibility" style="position: absolute;left: 0;bottom: 30px;"></app-compat>
+              <button id="mapBtn" class="mat-elevation-z2" (click)="openMap()">Carte</button>
+              <button class="aboBtn mat-elevation-z2 placeAboBtn-unsub" *ngIf="!isSub" (click)="subPlace()">S'abonner</button>
+              <button class="aboBtn mat-elevation-z2 placeAboBtn-sub" *ngIf="isSub" (click)="unsubPlace()">Abonné</button>
+            </div>
+            <div id="profileBio-container">
+              <div *ngIf="false">
+                <span id="profileBio-Title">Bio</span>
+                <p id="profileBio-Content">
+                  {{placeProfile.description}}
+                </p>
+              </div>
+            </div>
+            <app-friendPassage *ngIf="placeProfile.friends.length > 0" [friendPassage]="placeProfile.friends"
+                               [textColor]="'#DCDDE1'" style="margin-top: 20px" (click)="popupFriendsPassage()"></app-friendPassage>
+          </div>
+        </div>
+        <div class="col-lg-12" style="margin-top: 30px">
+          <div id="placeInfoDiv" class="mat-elevation-z2">
+            <span id="placeInfoTitle">Informations</span>
+            <div id="placeInfoMapContainer">
+              <div id="placeInfoMap"></div>
+            </div>
+            <ul id="placeInfoMain">
+              <li class="placeInfoItem" *ngIf="placeProfile.formattedAddress != undefined">
+                <div class="placeInfoItemTitle">Adresse</div>
+                <div class="placeInfoItemContent">{{placeProfile.formattedAddress}}</div>
+              </li>
+              <li class="placeInfoItem" *ngIf="placeProfile.phone != undefined">
+                <div class="placeInfoItemTitle">Téléphone</div>
+                <div class="placeInfoItemContent">{{placeProfile.phone}}</div>
+              </li>
+              <li class="placeInfoItem" *ngIf="placeProfile.website != undefined">
+                <div class="placeInfoItemTitle">Site Internet</div>
+                <div class="placeInfoItemContent">{{placeProfile.website}}</div>
+              </li>
+              <li class="placeInfoItem" *ngIf="placeProfile.priceLevel != undefined">
+                <div class="placeInfoItemTitle">Prix</div>
+                <div class="placeInfoItemContent" [ngSwitch]="placeProfile.priceLevel">
+                  <div *ngSwitchCase="0">Gratuit</div>
+                  <div *ngSwitchCase="1">Bon marché</div>
+                  <div *ngSwitchCase="2">Modéré</div>
+                  <div *ngSwitchCase="3">Elevé</div>
+                </div>
+              </li>
+              <li class="placeInfoItem">
+                <div class="placeInfoItemTitle">Abonnées</div>
+                <div class="placeInfoItemContent">{{placeProfile.subs.length}}</div>
+              </li>
+            </ul>
+            <ul id="placeInfoHours" *ngIf="placeProfile.openingHours.length > 0">
+              <li class="placeInfoItem">
+                <div class="placeInfoItemTitle">Lundi</div>
+                <div class="placeInfoItemContent">
+                  {{placeProfile.openingHours[0]}}
+                </div>
+              </li>
+              <li class="placeInfoItem">
+                <div class="placeInfoItemTitle">Mardi</div>
+                <div class="placeInfoItemContent">
+                  {{placeProfile.openingHours[1]}}
+                </div>
+              </li>
+              <li class="placeInfoItem">
+                <div class="placeInfoItemTitle">Mercredi</div>
+                <div class="placeInfoItemContent">
+                  {{placeProfile.openingHours[2]}}
+                </div>
+              </li>
+              <li class="placeInfoItem">
+                <div class="placeInfoItemTitle">Jeudi</div>
+                <div class="placeInfoItemContent">
+                  {{placeProfile.openingHours[3]}}
+                </div>
+              </li>
+              <li class="placeInfoItem">
+                <div class="placeInfoItemTitle">Vendredi</div>
+                <div class="placeInfoItemContent">
+                  {{placeProfile.openingHours[4]}}
+                </div>
+              </li>
+              <li class="placeInfoItem">
+                <div class="placeInfoItemTitle">Samedi</div>
+                <div class="placeInfoItemContent">
+                  {{placeProfile.openingHours[5]}}
+                </div>
+              </li>
+              <li class="placeInfoItem">
+                <div class="placeInfoItemTitle">Dimanche</div>
+                <div class="placeInfoItemContent">
+                  {{placeProfile.openingHours[6]}}
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="secondPart" class="col-lg-9 col-md-8">
+      <div class="row">
+        <div id="navbar-container" class="col-12">
+          <button class="navbtn mat-elevation-z2" (click)="switchPanel('review')" [ngClass]="{'selected': reviewPanel}">Avis</button>
+          <button class="navbtn mat-elevation-z2 disabled">Actualités</button>
+          <button class="navbtn mat-elevation-z2 disabled">Evenements</button>
+          <button class="navbtn mat-elevation-z2" (click)="switchPanel('media')" [ngClass]="{'selected': mediaPanel}">Media</button>
+        </div>
+        <div id="reviewContainer" class="col-12" *ngIf="reviewPanel">
+          <div id="depotAvisBtn" class="mat-elevation-z2" (click)="popupWriteReview()" *ngIf="!currentUserReview">
+            <mat-icon id="depotIcon" svgIcon="depot"></mat-icon>
+            <span style="margin-left: 5px">Deposer un avis</span>
+          </div>
+          <div id="editAvisBtn" class="mat-elevation-z2" (click)="popupEditReview()" *ngIf="currentUserReview">
+            <mat-icon id="editIcon" svgIcon="edit"></mat-icon>
+            <span style="margin-left: 5px">Modifier l'avis</span>
+          </div>
+          <div id="supprAvisBtn" class="mat-elevation-z2" (click)="popupDeleteReview()" *ngIf="currentUserReview">
+            <mat-icon id="supprIcon" svgIcon="suppr"></mat-icon>
+            <span style="margin-left: 5px">Supprimer l'avis</span>
+          </div>
+          <ng-masonry-grid id="grid" #mygrid [masonryOptions]="reviewsOptions" (onNgMasonryInit)="onNgMasonryInit($event, 1)">
+            <ng-masonry-grid-item class="reviewItem mat-elevation-z2" *ngFor="let review of reviews.results; let i = index;"
+                                  (click)="popupReviewDetails(i)" [ngClass]="signedInUserInfo.id === review.author.id ? 'myReview' : 'otherReview'">
+              <span class="reviewItem-date">{{review.created | datePassed}}</span>
+              <div class="reviewItem-pictContainer">
+                <img src="{{review.author.pp}}">
+              </div>
+              <span class="reviewItem-Name" [routerLink]="['/user/' + review.author.id]">{{review.author.name}}</span>
+              <div class="reviewItem-rateContainer">
+                <app-rater [rate]="review.rating" [color]="signedInUserInfo.id === review.author.id ? '#F8F8F8' : '#63585E'" [width]="16" [height]="16"></app-rater>
+              </div>
+              <p class="reviewItem-txt">
+                {{review.message}}
+              </p>
+              <div class="reviewItem-media" *ngIf="review.medias != undefined && review.medias.length > 0">
+                <img [src]="review.medias[0].url">
+              </div>
+            </ng-masonry-grid-item>
+          </ng-masonry-grid>
+          <div class="noDataBandeau mat-elevation-z2" *ngIf="reviews.results.length === 0 && tabSpinner === 'stop'">
+            Il n'y a pas d'avis sur ce lieu
+          </div>
+        </div>
+        <div id="MediaContainer" class="col-12" *ngIf="mediaPanel">
+          <ng-masonry-grid [masonryOptions]="mediasOptions" (onNgMasonryInit)="onNgMasonryInit($event, 2)">
+            <ng-masonry-grid-item class="media-item mat-elevation-z2" *ngFor="let media of medias.results; let i = index;">
+              <img class="mediaItemImg" src="{{media.url}}" alt="media">
+            </ng-masonry-grid-item>
+          </ng-masonry-grid>
+          <div class="noDataBandeau mat-elevation-z2" *ngIf="medias.results.length === 0 && tabSpinner === 'stop'">
+            Il n'y a pas de medias sur ce lieu
+          </div>
+        </div>
+      </div>
+      <app-spinner id="tabSpinner" [state]="tabSpinner"></app-spinner>
+    </div>
+  </div>
+</div>
+<app-spinner id="pageSpinner" [state]="pageSpinner"></app-spinner>

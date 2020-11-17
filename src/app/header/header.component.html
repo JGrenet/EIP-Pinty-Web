@@ -1,0 +1,94 @@
+ <div *ngIf="shouldDisplay">
+   <div id="top-header" class="container-fluid">
+     <div class="container">
+       <div id="top-row" class="row">
+         <div id="menu-container" class="col-3 d-md-none">
+           <mat-icon id="menu-icon" svgIcon="menu"></mat-icon>
+         </div>
+         <div class="col-sm-2 d-none d-md-block" [routerLink]="['']">
+           <img id="logo-text" src="./assets/image/logo_texte.png" alt="logo_text">
+         </div>
+         <div class="col">
+           <div id="search-container">
+             <form id="form-search" [formGroup]="filterForm">
+               <input id="input-search" #search type="text" placeholder="Search..." formControlName="term">
+               <mat-icon id="svg-search" svgIcon="search" (click)="onSearch(search.value)"></mat-icon>
+               <ul class="list-group list-result mat-elevation-z2" *ngIf="results" (click)="hideResults()">
+                 <li class="list-group-item list-result-item"
+                     *ngFor="let place of placesResult.results | slice: 0:5"
+                     [routerLink]="['/place/' + place.id]">
+                   <img class="item-logo" [src]="place.image" alt="Place logo">
+                   <span class="item-title">{{ place.name }}</span>
+                 </li>
+                 <li class="list-group-item list-result-item"
+                     *ngFor="let profile of profilesResult.results | slice: 0:5"
+                     [routerLink]="['/user/' + profile.id]">
+                   <img class="item-logo" [src]="profile.image" alt="User picture">
+                   <span class="item-title">{{ profile.username }}</span>
+                 </li>
+                 <span class="list-group-item no-result" *ngIf="placesResult.results.length + profilesResult.results.length === 0">Aucun résultat</span>
+                 <button class="btn btn-more" *ngIf="placesResult.results.length + profilesResult.results.length > 5"
+                         (click)="onSearch(search.value)">Afficher les résultats </button>
+               </ul>
+             </form>
+           </div>
+         </div>
+         <div id="header-user" class="col-3" (click)="toggleUserMenu()">
+           <div class="row no-gutters" style="height: 100%">
+             <div id="header-username" class="col d-none d-md-block">
+               {{userProfile.username}}
+             </div>
+             <div class="col-md-3 d-none d-md-block">
+               <img id="header-userimg" [src]="userProfile.image">
+             </div>
+             <div id="aroundme-mini" class="col-12 d-md-none">
+               <mat-icon svgIcon="compass"></mat-icon>
+             </div>
+             <div class="col-2 d-none d-md-block" id="header-userdropdown">
+               <mat-icon svgIcon="arrow-down"></mat-icon>
+             </div>
+           </div>
+           <div id="userMenu" *ngIf="userMenu">
+              <ul id="userMenuList" class="mat-elevation-z2">
+                <li class="userMenuItem" [routerLink]="['/user/' + userProfile.id]">
+                  <div class="userMenuItemIconContainer">
+                    <mat-icon svgIcon="account_box"></mat-icon>
+                  </div>
+                  <div class="userMenuItemTxt">Profil</div>
+                </li>
+                <li class="userMenuItem" *ngIf="userProfile.role === 'ADMIN'" [routerLink]="['/admin/']">
+                  <div class="userMenuItemIconContainer">
+                    <mat-icon svgIcon="admin_user"></mat-icon>
+                  </div>
+                  <div class="userMenuItemTxt">Admin</div>
+                </li>
+                <li class="userMenuItem" (click)="deco()">
+                  <div class="userMenuItemIconContainer">
+                    <mat-icon svgIcon="power"></mat-icon>
+                  </div>
+                  <div class="userMenuItemTxt">Déconnexion</div>
+                </li>
+              </ul>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div id="sub-header" class="container-fluid">
+     <nav class="container" style="height: 100%">
+       <ul id="navigation-list" class="row">
+         <li class="col-lg-1 col-3" [ngClass]="{'selected': dashboardTab}" [routerLink]="['/']">
+           <span>Dashboard</span>
+           <div class="circle" *ngIf="dashboardTab"></div>
+         </li>
+         <li class="col-lg-2 col-3" [ngClass]="{'selected': aroundTab}" [routerLink]="['/around/']">
+           <span>Autour de moi</span>
+           <div class="circle" *ngIf="aroundTab"></div>
+         </li>
+         <li class="col-lg-1 col-3" (click)="writeFeedback()">
+           <span>Feedback</span>
+         </li>
+       </ul>
+     </nav>
+   </div>
+ </div>

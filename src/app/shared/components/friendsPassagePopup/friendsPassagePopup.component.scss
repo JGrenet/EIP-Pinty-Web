@@ -1,0 +1,188 @@
+@import "../../../../scss/variables";
+@import "~bootstrap/scss/bootstrap-reboot";
+
+#popup-container {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  background-color: $gris_clair;
+}
+
+#header {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.header-title {
+  font-size: 17px;
+  color: $violet_sombre;
+}
+
+#close-button {
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#close-button:hover {
+  cursor: pointer;
+}
+
+#close-icon {
+  width: 100%;
+  height: 100%;
+  color: $violet_main;
+}
+
+#popup-content {
+  width: 100%;
+  height: calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-category {
+  width: 100%;
+  height: auto;
+  margin-top: 15px;
+}
+
+.category-title {
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  text-align: left;
+  color: $violet_sombre;
+  margin-bottom: 10px;
+}
+
+#object-input {
+  width: 100%;
+  height: auto;
+  resize: none;
+  border: 2px solid $violet_main;
+  color: $violet_main;
+  font-size: 14px;
+  padding: 10px 20px 10px 20px;
+  box-sizing: border-box;
+  background-color: $gris_clair;
+}
+
+#message-area {
+  width: 100%;
+  height: 100px;
+  resize: none;
+  border: 2px solid $violet_main;
+  color: $violet_main;
+  font-size: 14px;
+  padding: 10px 20px 10px 20px;
+  box-sizing: border-box;
+  background-color: $gris_clair;
+}
+
+#media-list {
+  list-style: none;
+  padding: unset;
+  margin: unset;
+  display: grid;
+  grid-template-columns: 80px 80px 80px 80px;
+  grid-template-rows: 80px;
+  grid-row-gap: 10px;
+  grid-column-gap: 13.3px; //Work only if width == 360px
+}
+
+.media-item {
+  width: 80px;
+  height: 80px;
+  background-color: $gris_clair;
+  border: 2px solid $violet_main;
+  box-sizing: border-box;
+}
+
+.uploaded-media-item {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.uploaded-media-item img {
+  width: 80px;
+  height: 80px;
+}
+
+#btn-publish {
+  width: 100%;
+  background-color: $violet_main;
+  height: 45px;
+  color: $gris_clair;
+  font-size: 20px;
+  border-radius: 3px;
+  border: none;
+}
+
+#btn-publish:hover {
+  cursor: pointer;
+}
+
+#add-img-item {
+  position: relative;
+}
+
+#add-img-item:hover {
+  cursor: pointer;
+}
+
+#dl-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $violet_main;
+}
+
+.delete-img {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -5px;
+  right: -5px;
+  background-color: #cc0000;
+  border-radius: 50%;
+}
+
+.delete-img:hover {
+  cursor: pointer;
+  background-color: #990000;
+}
+
+.deleteIcon {
+  height: 16px;
+  width: 16px;
+  position: relative;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  fill: white;
+}
+
+.user-image {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-right: 0.75rem;
+}
+
+.user-name {
+
+}
+
+.user-info:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,6 @@
+<div *ngIf="state == 'run'" id="container" [@showSpinner]="{value: state}" (@showSpinner.done)="onAnimationDone($event)">
+  <div id="block1" class="block"></div>
+  <div id="block2" class="block"></div>
+  <div id="block3" class="block"></div>
+  <div id="block4" class="block"></div>
+</div>

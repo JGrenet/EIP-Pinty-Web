@@ -1,0 +1,201 @@
+@import "../../../../scss/variables";
+@import "~bootstrap/scss/bootstrap-reboot";
+
+
+::placeholder {
+  color: $violet_clair;
+}
+
+#popup-container {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+}
+
+#popupHeader {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: $violet_main;
+  text-align: center;
+  color: $gris_clair;
+  font-size: 17px;
+}
+
+.popupContent {
+  width: 100%;
+  padding: 20px 20px 20px 20px;
+  position: relative;
+  background-color: $gris_clair;
+}
+
+#popupSubHeader {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: $violet_sombre;
+  font-size: 17px;
+}
+
+.popup-category {
+  width: 100%;
+  height: auto;
+  margin-top: 15px;
+}
+
+input[type=text] {
+  width: 100%;
+  height: 40px;
+  background-color: $gris_clair;
+  color: $violet_sombre;
+  border: 2px solid $violet_main;
+  font-size: 14px;
+  padding-left: 20px;
+}
+
+select {
+  height: 40px;
+  /* Remove the dotted line from firefox select */
+  color: $violet_sombre !important;
+  color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 0 $violet_main;
+  /* */
+  border: 2px solid $violet_main;
+  font-size: 14px;
+  padding-left: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: $gris_clair url('/assets/icon/arrow-down-violet.svg') no-repeat 90%;
+  fill: $violet_main;
+}
+
+.genderOption {
+  width: 100px;
+  height: 40px;
+  background-color: $gris_clair;
+  color: $violet_clair;
+  border: 2px solid $violet_main;
+  font-size: 14px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.genderOption.selected {
+  background-color: $violet_main;
+  color: $gris_clair;
+}
+
+.genderOption:hover {
+  cursor: pointer;
+}
+
+.genderOptionGroup {
+  display: flex;
+  flex-direction: row;
+}
+
+.genderF  {
+  margin-left: 15px;
+}
+
+.category-title {
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  text-align: left;
+  color: $violet_sombre;
+  margin-bottom: 10px;
+}
+
+.publishBtn {
+  width: 100%;
+  background-color: $violet_main;
+  height: 45px;
+  color: $gris_clair;
+  font-size: 20px;
+  border-radius: 3px;
+  border: none;
+}
+
+.publishBtn.invalid {
+  background-color: $gris_sombre !important;
+  color: $violet_main !important;
+}
+
+.publishBtn:hover {
+  cursor: pointer;
+}
+
+#panelContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.panel {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+#rightPanel {
+  margin-left: 40px;
+}
+
+#bioArea {
+  width: 100%;
+  height: 100px;
+  resize: none;
+  border: 2px solid $violet_main;
+  color: $violet_sombre;
+  font-size: 14px;
+  padding: 10px 20px 10px 20px;
+  box-sizing: border-box;
+  background-color: $gris_clair;
+}
+
+#ppUploadContainer {
+  width: 100%;
+  height: 100px;
+  border: 2px solid $violet_main;
+  color: $violet_main;
+  font-size: 16px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: $gris_clair;
+}
+
+#ppContainer {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid $violet_main;
+  float: left;
+}
+
+#pp {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+#ppUploadInput {
+  height: 80px;
+  width: calc(100% - 80px);
+  float: right;
+  line-height: 80px;
+  text-align: center;
+}
+
+#ppUploadInput:hover {
+  cursor: pointer;
+}
+
+#dl-icon {
+  width: 20px;
+  height: 20px;
+  top: 6%;
+  fill: $violet_main;
+  position: relative;
+}

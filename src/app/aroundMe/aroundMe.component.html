@@ -1,0 +1,63 @@
+<div class="container-fluid container-fluid-nav">
+  <div class="container container-nav">
+    <button class="btn-nav mat-elevation-z2" [ngClass]="{'selected': type === 'tous'}" (click)="switchType('tous')">
+      Tous
+    </button>
+    <button class="btn-nav mat-elevation-z2" [ngClass]="{'selected': type === 'naturel'}" (click)="switchType('naturel')">
+      Naturels
+    </button>
+    <button class="btn-nav mat-elevation-z2" [ngClass]="{'selected': type === 'bar'}" (click)="switchType('bar')">
+      Bars
+    </button>
+    <button class="btn-nav mat-elevation-z2" [ngClass]="{'selected': type === 'hotel'}" (click)="switchType('hotel')">
+      Hotels
+    </button>
+    <button class="btn-nav mat-elevation-z2" [ngClass]="{'selected': type === 'divertissement'}" (click)="switchType('divertissement')">
+      Divertissements
+    </button>
+    <button class="btn-nav mat-elevation-z2" [ngClass]="{'selected': type === 'culture'}" (click)="switchType('culture')">
+      Culturels
+    </button>
+    <button class="btn-nav mat-elevation-z2" [ngClass]="{'selected': type === 'transport'}" (click)="switchType('transport')">
+      Transports
+    </button>
+    <button class="btn-nav mat-elevation-z2" [ngClass]="{'selected': type === 'magasin'}" (click)="switchType('magasin')">
+      Magasins
+    </button>
+    <button class="btn-nav mat-elevation-z2" [ngClass]="{'selected': type === 'administratif'}" (click)="switchType('administratif')">
+      Administratifs
+    </button>
+    <button class="btn-nav mat-elevation-z2" [ngClass]="{'selected': type === 'service'}" (click)="switchType('service')">
+      Services
+    </button>
+    <button class="btn-nav mat-elevation-z2" [ngClass]="{'selected': type === 'autre'}" (click)="switchType('autre')">
+      Autres
+    </button>
+  </div>
+</div>
+
+<div class="container container-result">
+  <div class="row row-result" id="row-places">
+    <div class="col col-result" id="col-places">
+      <div class="sub-col-result">
+        <div *ngIf="placesAround">
+          <h5 class="title-result">Lieux autour de vous</h5>
+          <ul class="list-group list-result" *ngIf="placesLoaded | async">
+            <li class="list-group-item list-result-item"
+                *ngFor="let place of filteredPlaces"
+                [routerLink]="['/place/' + place.id]">
+              <img class="item-logo" [src]="place.image" alt="Place logo">
+              <span class="item-title">{{ place.name }}</span>
+            </li>
+          </ul>
+        </div>
+        <!--<button class="btn btn-more" *ngIf="placesSearch && placesResult.results.length > placesLimit"
+                (click)="switchSearch('places')">Voir plus
+        </button>-->
+      </div>
+      <!--<span class="info-no-result" *ngIf="placesSearch && placesResult.results.length == 0">
+        Aucun lieux autour de vous
+      </span>-->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div id="popup-container" *ngIf="popupLoaded">
+  <div id="close-button" (click)="closePopup()">
+    <mat-icon id="close-icon" svgIcon="close"></mat-icon>
+  </div>
+  <div id="header">
+    <span class="header-title">Amis passés ici</span>
+  </div>
+  <div id="popup-content">
+    <div class="popup-category user-info" *ngFor="let friend of this.data.friends; let i = index"
+         [routerLink]="['/user/' + friend.id]" (click)="closePopup()">
+      <img class="user-image" [src]="friend.pp" alt="Profile picture">
+      <span class="user-name">{{ friend.name }}</span>
+    </div>
+  </div>
+</div>

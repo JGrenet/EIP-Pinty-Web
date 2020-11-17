@@ -1,0 +1,19 @@
+{
+  "result" : [
+    {
+      "type" : "person",
+      "name" : "toto",
+      "id" : "21"
+    },
+    {
+      "type" : "person",
+      "name" : "Sheria",
+      "id" : "34",
+    },
+    {
+      "type" : "restaurant",
+      "name" : "Chez Michou",
+      "id" : "154",
+    }
+  ]
+}

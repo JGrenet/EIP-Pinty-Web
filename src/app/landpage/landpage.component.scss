@@ -1,0 +1,176 @@
+@import "../../scss/variables";
+@import "~bootstrap/scss/bootstrap-reboot";
+
+.container-fluid {
+  background-color: $violet_sombre;
+  @include size(100%, 100%);
+}
+
+#main-row {
+  @include make-row();
+  height: inherit;
+}
+
+#main-col {
+  @include make-col-ready();
+  height: 500px;
+  max-width: 1150px;
+  background-color: $violet_main;
+  position: relative;
+
+  @include media-breakpoint-down(lg) {
+    max-width: none;
+    @include make-col(12);
+  }
+
+}
+
+#login-container {
+  width: 400px;
+  height: 750px;
+  background-color: $blanc;
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+  padding-top: 175px;
+
+  @include media-breakpoint-down(sm) {
+    top: 0;
+    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+#title {
+  @include make-col-ready();
+  @include make-col(12);
+  height: 60px;
+  color: $violet_main;
+  text-align: center;
+}
+
+#title h1 {
+  font-size: 3rem;
+  font-weight: normal;
+}
+
+#connect-btn {
+  @include make-col-ready();
+  @include make-col(12);
+  margin-top: 150px;
+}
+
+#connect-btn img {
+  width: 300px;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+}
+
+#bottom-text {
+  @include make-col-ready();
+  @include make-col(12);
+  position: relative;
+  bottom: 0;
+  text-align: center;
+  color: $violet_main;
+  margin-top: 170px;
+}
+
+#bottom-text span {
+  font-size: 1rem;
+}
+
+#logo-container {
+  @include make-row();
+  height:inherit;
+  width: 700px;
+
+  @include media-breakpoint-down(md) {
+    width: 500px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+}
+
+#logo-text-container {
+  @include make-col-ready();
+  @include make-col(12);
+}
+
+#logo-text-container img {
+  width: 125px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#pres-container {
+  @include make-col-ready();
+  @include make-col(12);
+}
+
+#pres-container img {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#little-logo {
+  display: none;
+
+  @include media-breakpoint-down(sm) {
+    display: block;
+    width: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+  }
+}
+
+.connectBtn:hover {
+  cursor: pointer;
+}
+
+/* Responsive Part */
+
+@media screen and (min-height: 600px) and (max-height: 750px) {
+  #login-container {
+    height: 600px;
+    padding-top: 100px;
+  }
+
+  #bottom-text {
+    margin-top: 95px;
+  }
+}
+
+@media screen and (min-height: 500px) and (max-height: 600px) {
+  #login-container {
+    height: 500px;
+    padding-top: 20px;
+  }
+
+  #bottom-text {
+    margin-top: 45px;
+  }
+
+  #title {
+    margin-top: 30px;
+  }
+
+  #title h1 {
+    font-size: 2.5rem;
+  }
+
+}
+
+@media screen and (max-height: 600px) and (max-width: 767px) {
+  #connect-btn {
+    margin-top: 50px;
+  }
+}

@@ -1,0 +1,12 @@
+<div id="filterBtn" (click)="toggleFilter()" [ngClass]="filterTab ? 'selected' : ''">Filtrer</div>
+<div id="filterDiv" class="mat-elevation-z1" *ngIf="filterTab">
+  <form [formGroup]="filterForm">
+    <input class="filterInput" type="text" placeholder="Feedback ID" formControlName="id">
+    <input class="filterInput" type="text" placeholder="Title" formControlName="title">
+    <input class="filterInput" type="text" placeholder="Keyword" formControlName="content">
+    <input class="filterInput" type="text" placeholder="Author ID" formControlName="author">
+  </form>
+</div>
+<div id="contentContainer">
+  <app-admin-table [tableValues]="tableValues" [catFiltersConfig]="catFiltersConfig" [canDelete]="false" (onEdit)="editAct($event)"></app-admin-table>
+</div>

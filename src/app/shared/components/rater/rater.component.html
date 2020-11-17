@@ -1,0 +1,7 @@
+<div class="starContainer" *ngFor="let n of rateArray; let i = index">
+  <div [ngSwitch]="n">
+    <mat-icon svgIcon="full_star" *ngSwitchCase="1" [style.color]="color" [style.width]="width + 'px'" [style.height]="height + 'px'" (click)="changeRate(i + 1)"></mat-icon>
+    <mat-icon svgIcon="half_star" *ngSwitchCase="0.5" [style.color]="color" [style.width]="width + 'px'" [style.height]="height + 'px'" (click)="changeRate(i + 1)"></mat-icon>
+    <mat-icon svgIcon="star" *ngSwitchCase="0" [style.color]="color" [style.width]="width + 'px'" [style.height]="height + 'px'" (click)="changeRate(i + 1)"></mat-icon>
+  </div>
+</div>

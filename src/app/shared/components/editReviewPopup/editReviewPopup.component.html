@@ -1,0 +1,40 @@
+<div id="popup-container" *ngIf="popupLoaded">
+  <app-spinner id="popupSpinner" [state]="popupSpinner"></app-spinner>
+  <div id="close-button" (click)="closePopup()">
+    <mat-icon id="close-icon" svgIcon="close"></mat-icon>
+  </div>
+  <div id="header">
+    <span class="header-title">Depot d'avis</span>
+  </div>
+  <div id="popup-content">
+    <div class="popup-category">
+      <div class="category-title">Lieu</div>
+      <div class="placeRecap">
+        <div id="imgContainer">
+          <img id="placeImg" [src]="placeInfo.image">
+        </div>
+        <div id="placeInfo">
+          <div id="placeTitle">{{placeInfo.name}}</div>
+          <div id="placeScore">
+            <app-rater [rate]="0" [color]="'#998DA0'" [width]="24" [height]="24"></app-rater>
+          </div>
+        </div>
+        <app-typeChip id="placeRecapType" [type]="placeInfo.types"></app-typeChip>
+        <app-compat id="placeRecapCompat" [compatScore]="placeInfo.compatibility"></app-compat>
+      </div>
+    </div>
+    <div class="popup-category">
+      <div class="category-title">Note</div>
+      <app-rater [rate]="this.data.reviewRating" [color]="'#998DA0'" [width]="25" [height]="25" [editable]="true" (onNoteChange)="setNote($event)"></app-rater>
+    </div>
+    <div class="popup-category">
+      <div class="category-title">Commentaire</div>
+      <form [formGroup]="Form">
+        <textarea id="commentArea" [value]="this.data.reviewMessage" formControlName="reviewMessage" required></textarea>
+      </form>
+    </div>
+    <div class="popup-category">
+      <button id="btn-publish" class="mat-elevation-z2" (click)="editReview()" *ngIf="!sent">Publier</button>
+    </div>
+  </div>
+</div>

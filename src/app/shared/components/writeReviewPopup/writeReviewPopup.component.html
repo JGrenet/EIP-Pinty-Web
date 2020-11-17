@@ -1,0 +1,55 @@
+<div id="popup-container" *ngIf="popupLoaded">
+  <app-spinner id="popupSpinner" [state]="popupSpinner"></app-spinner>
+  <div id="close-button" (click)="closePopup()">
+    <mat-icon id="close-icon" svgIcon="close"></mat-icon>
+  </div>
+  <div id="header">
+    <span class="header-title">Depot d'avis</span>
+  </div>
+  <div id="popup-content">
+    <div class="popup-category">
+      <div class="category-title">Lieu</div>
+      <div class="placeRecap">
+        <div id="imgContainer">
+          <img id="placeImg" [src]="placeInfo.image">
+        </div>
+        <div id="placeInfo">
+          <div id="placeTitle">{{placeInfo.name}}</div>
+          <div id="placeScore">
+            <app-rater [rate]="0" [color]="'#998DA0'" [width]="24" [height]="24"></app-rater>
+          </div>
+        </div>
+        <app-typeChip id="placeRecapType" [type]="placeInfo.types"></app-typeChip>
+        <app-compat id="placeRecapCompat" [compatScore]="placeInfo.compatibility"></app-compat>
+      </div>
+    </div>
+    <div class="popup-category">
+      <div class="category-title">Note</div>
+      <app-rater [rate]="1" [color]="'#998DA0'" [width]="25" [height]="25" [editable]="true" (onNoteChange)="setNote($event)"></app-rater>
+    </div>
+    <div class="popup-category">
+      <div class="category-title">Commentaire</div>
+      <form [formGroup]="Form">
+        <textarea id="commentArea" placeholder="Exprimez-vous" formControlName="reviewMessage" required></textarea>
+      </form>
+    </div>
+    <div class="popup-category">
+      <div class="category-title">Medias</div>
+      <ul id="media-list">
+        <li *ngFor="let img of uploadedImgs;" class="uploaded-media-item" [ngStyle]="{'display': img.visible == true ? 'block' : 'none'}">
+          <img id="{{'imgU' + img.id}}" [src]="img.src"/>
+          <div class="delete-img" (click)="deleteUploadedImg(img.id)">
+            <mat-icon class="deleteIcon" svgIcon="close"></mat-icon>
+          </div>
+        </li>
+        <input type="file" style="display: none" (change)="onFileChanged($event)" accept="image/*" #fileInput>
+        <li id="add-img-item" class="media-item" (click)="fileInput.click()" *ngIf="getVisibleImg() < 5">
+          <mat-icon id="dl-icon" svgIcon="dl"></mat-icon>
+        </li>
+      </ul>
+    </div>
+    <div class="popup-category">
+      <button id="btn-publish" class="mat-elevation-z2" (click)="writeReview()" *ngIf="!sent">Publier</button>
+    </div>
+  </div>
+</div>

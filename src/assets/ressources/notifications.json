@@ -1,0 +1,26 @@
+{
+  "notifications" : [
+    {
+      "id" : "1",
+      "type" : "friend_add",
+      "from" : "toto",
+      "from_id" : "21",
+      "txt" : ""
+    },
+    {
+      "id" : "2",
+      "type" : "favoris_newpost",
+      "from" : "Chez Michou",
+      "from_id" : "154",
+      "post_id" : "80"
+    },
+    {
+      "id" : "3",
+      "type" : "new_note",
+      "from" : "toto",
+      "from_id" : "21",
+      "txt" : "Super endroit ! ",
+      "note" : "5"
+    }
+  ]
+}

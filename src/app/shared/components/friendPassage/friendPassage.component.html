@@ -1,0 +1,4 @@
+<div class="fimgContainer" [ngStyle]="{width: ((friendPassage.length * 10) + 10) + 'px'}">
+  <img class="fimg first"  *ngFor="let friend of friendPassage | slice:0:5; let i = index" src="{{friend.pp}}" height="20" width="20" [ngStyle]="{'left': (i) * 10 + 'px'}">
+  <span class="fimgText" *ngIf="friendPassage.length > 5" [ngStyle]="{color: textColor}">+ {{friendPassage.length - 5}} amis sont passés ici</span>
+</div>

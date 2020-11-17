@@ -1,0 +1,48 @@
+<div class="popup-pict"></div>
+<div class="popup-info">
+  <div class="popup-titlediv">
+    <div  style="width: 220px; display: flex">
+      <span>{{placeData.title}}</span>
+      <div class="type_div">
+        <mat-icon class="type_icon" svgIcon="bar"></mat-icon>
+      </div>
+    </div>
+    <div style="height: 20px; width:50px;text-align: center">
+      <span class="distance_span">{{placeData.distance}}m</span>
+    </div>
+  </div>
+  <div class="popup-titlediv">
+    <div  style="width: 220px">
+      <mat-icon class="note_icon" svgIcon="full_star"></mat-icon>
+      <mat-icon class="note_icon" svgIcon="full_star"></mat-icon>
+      <mat-icon class="note_icon" svgIcon="full_star"></mat-icon>
+      <mat-icon class="note_icon" svgIcon="half_star"></mat-icon>
+      <mat-icon class="note_icon" svgIcon="star"></mat-icon>
+    </div>
+    <div style="height: 20px; width:50px;display: flex">
+      <div class="compat_div">
+        <mat-icon class="compat_icon" svgIcon="palette"></mat-icon>
+      </div>
+      <span style="font-size: 11px">{{placeData.compat_score}}%</span>
+    </div>
+  </div>
+  <div class="popup-titlediv" style="line-height: 10px;margin-top:15px">
+    <div class="icon-container">
+      <mat-icon class="target-icon" svgIcon="target"></mat-icon>
+    </div>
+    <span style="font-size: 11px; margin-left: 10px">Françoise, Gilbert et Francis sont déjà passés dans ce lieu</span>
+  </div>
+  <div class="popup-titlediv" style="margin-top:5px">
+    <div class="icon-container">
+      <mat-icon class="target-icon" svgIcon="place"></mat-icon>
+    </div>
+    <span style="font-size: 11px; margin-left: 10px">{{placeData.address}}</span>
+  </div>
+  <div class="popup-titlediv" style="margin-top:5px">
+    <div class="icon-container">
+      <mat-icon class="target-icon" svgIcon="outlink"></mat-icon>
+    </div>
+    <span style="font-size: 11px; margin-left: 10px">lesaintmichel.com</span>
+  </div>
+</div>
+<div class="popup-seemore">See more</div>

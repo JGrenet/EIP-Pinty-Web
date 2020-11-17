@@ -1,0 +1,42 @@
+<div id="popup-container" *ngIf="popupLoaded">
+  <div id="close-button" (click)="closePopup()">
+    <mat-icon id="close-icon" svgIcon="close"></mat-icon>
+  </div>
+  <div id="header">
+    <span class="header-title">Formulaire de retour</span>
+  </div>
+  <div id="popup-content">
+    <div class="popup-category">
+      <div class="category-title">Objet</div>
+      <form [formGroup]="Form">
+        <input id="object-input" type="text" placeholder="Ex: Retour sur l'application" formControlName="feedbackObject"
+               maxlength="80" required>
+      </form>
+    </div>
+    <div class="popup-category">
+      <div class="category-title">Message</div>
+      <form [formGroup]="Form">
+        <textarea id="message-area" placeholder="Exprimez-vous" formControlName="feedbackMessage" required></textarea>
+      </form>
+    </div>
+    <div class="popup-category">
+      <div class="category-title">Medias</div>
+      <ul id="media-list">
+        <li *ngFor="let img of uploadedImgs;" class="uploaded-media-item"
+            [ngStyle]="{'display': img.visible == true ? 'block' : 'none'}">
+          <img id="{{'imgU' + img.id}}" [src]="img.src"/>
+          <div class="delete-img" (click)="deleteUploadedImg(img.id)">
+            <mat-icon class="deleteIcon" svgIcon="close"></mat-icon>
+          </div>
+        </li>
+        <input type="file" style="display: none" (change)="onFileChanged($event)" accept="image/*" #fileInput>
+        <li id="add-img-item" class="media-item" (click)="fileInput.click()" *ngIf="getVisibleImg() < 5">
+          <mat-icon id="dl-icon" svgIcon="dl"></mat-icon>
+        </li>
+      </ul>
+    </div>
+    <div class="popup-category">
+      <button id="btn-publish" class="mat-elevation-z2" (click)="publishFeedback()" *ngIf="!sent">Envoyer</button>
+    </div>
+  </div>
+</div>

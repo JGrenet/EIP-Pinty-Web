@@ -1,0 +1,17 @@
+<div id="popup-container" *ngIf="popupLoaded">
+  <app-spinner id="popupSpinner" [state]="popupSpinner"></app-spinner>
+  <div id="close-button" (click)="closePopup()">
+    <mat-icon id="close-icon" svgIcon="close"></mat-icon>
+  </div>
+  <div id="header">
+    <span class="header-title">Suppression d'avis</span>
+  </div>
+  <div id="popup-content">
+    <div class="popup-category">
+      <div class="category-title">Voulez-vous vraiment supprimer votre avis ?</div>
+    </div>
+    <div class="popup-category">
+      <button id="btn-confirm" class="mat-elevation-z2" (click)="deleteReview()" *ngIf="!sent">Confirmer</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div id="popupContainer">
+  <div id="popupHeader">
+    {{data.title}}
+  </div>
+  <ul id="inputContainer" *ngIf="isReadyToDisplay">
+    <li class="propItem" *ngFor="let displayItem of data.itemDisplayConfig">
+      <span class="propTitle">{{displayItem.displayedName}}</span>
+      <div [ngSwitch]="displayItem.type">
+        <div *ngSwitchCase="'string'">
+          <input [ngClass]="'propInput ' + displayItem.propName + 'Input'" type="text" [attr.disabled]="!displayItem.isEditable ? '' : null" [value]="data.itemProps[displayItem.propName]"/>
+        </div>
+        <div *ngSwitchCase="'number'">
+          <input [ngClass]="'propInput ' + displayItem.propName + 'Input'" type="number" [attr.disabled]="!displayItem.isEditable ? '' : null" [value]="data.itemProps[displayItem.propName]"/>
+        </div>
+        <div *ngSwitchCase="'date'">
+          <input [ngClass]="'propInput ' + displayItem.propName + 'Input'" type="text" disabled [value]="data.itemProps[displayItem.propName]"/>
+        </div>
+        <div *ngSwitchCase="'medias'">
+          <ul id="mediasContainer">
+            <li class="mediaItem" *ngFor="let mediaItem of data.itemProps[displayItem.propName]; let index = index" (click)="openImg(index, data.itemProps[displayItem.propName])">
+              <img [src]="'http://pinty.en-f.eu/api-dev/public/media' + mediaItem">
+              <div class="imgOpacifier"></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div id="popupFooter">
+    <button (click)="closePopup(false)">ANNULER</button>
+    <button *ngIf="isEditable" (click)="closePopup(true)">VALIDER</button>
+  </div>
+  <div #imgVisualizer id="imgVisualizer">
+    <img src=""/>
+    <div class="closeBtn" (click)="closeImg()"></div>
+  </div>
+</div>

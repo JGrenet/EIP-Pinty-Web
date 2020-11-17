@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div id="main-row" class="justify-content-center align-items-center">
+    <div id="main-col" class="mat-elevation-z20">
+      <div id="logo-container" class="align-items-end">
+        <div id="logo-text-container">
+          <img src="./assets/image/logo_texte.png" alt="logo_text">
+        </div>
+        <div id="pres-container">
+          <img src="./assets/image/login-pres.png" [width]="250" alt="login_presentation">
+        </div>
+      </div>
+      <div id="login-container" class="mat-elevation-z20">
+        <div class="row no-gutters">
+          <img id="little-logo" src="./assets/image/logo_texte_violet.png" alt="logo">
+          <div id="title">
+            <h1>Sign in</h1>
+          </div>
+          <div id="connect-btn">
+            <img id="googleConnect" class="connectBtn" src="./assets/image/google.png" (click)="signIn('google')" alt="google connect">
+            <img id="facebookConnect" class="connectBtn" src="./assets/image/facebook.png" style="margin-top: 30px" (click)="signIn('facebook')" alt="facebook connect">
+          </div>
+          <div id="bottom-text">
+            <span>
+              &copy;Pinty 2018 <br>
+              All rights Reserved
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

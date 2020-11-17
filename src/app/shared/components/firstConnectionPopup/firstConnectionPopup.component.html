@@ -1,0 +1,77 @@
+<div id="popup-container">
+  <div id="popupHeader">Creation de profil</div>
+  <div class="popupContent">
+    <div id="popupSubHeader">Informations personnelles</div>
+      <form id="panelContainer" [@swapPanel]="visiblePanel">
+        <form id="leftPanel" class="panel" [formGroup]="leftPartForm" >
+          <div class="popup-category">
+            <div class="category-title">Nom</div>
+            <input type="text" placeholder="Sanchez" formControlName="lname"/>
+          </div>
+          <div class="popup-category">
+            <div class="category-title">Prenom</div>
+            <input type="text" placeholder="Rick" formControlName="fname"/>
+          </div>
+          <div class="popup-category">
+            <div class="category-title">Adresse mail</div>
+            <input type="text" placeholder="pinty@pinty.com" formControlName="email"/>
+          </div>
+          <div class="popup-category" formGroupName="birthDate">
+            <div class="category-title">Date de naissance</div>
+            <select style="width: 100px" formControlName="day">
+              <option value="" disabled selected>Jour</option>
+              <option *ngFor="let day of dayTab" [value]="day">{{day}}</option>
+            </select>
+            <select style="width: 100px; margin-left: 15px; margin-right: 15px" formControlName="month">
+              <option value="" disabled selected>Mois</option>
+              <option *ngFor="let month of monthTab" [value]="month">{{month}}</option>
+            </select>
+            <select style="width: 120px" formControlName="year">
+              <option value="" disabled selected>Année</option>
+              <option *ngFor="let year of yearTab" [value]="year">{{year}}</option>
+            </select>
+          </div>
+          <div class="popup-category">
+            <div class="category-title">Genre</div>
+            <div class="genderOptionGroup">
+              <div class="genderOption" [ngClass]="gender === 'male' ? 'selected' : ''" (click)="swapGender('male')">Homme</div>
+              <div class="genderF genderOption" [ngClass]="gender === 'female' ? 'selected' : ''" (click)="swapGender('female')">Femme</div>
+            </div>
+          </div>
+          <div class="popup-category" style="margin-top: 30px">
+            <button class="publishBtn mat-elevation-z2" (click)="showRightPart()" [ngClass]="leftPartForm.status === 'VALID' ? '' : 'invalid'">Suivant</button>
+          </div>
+        </form>
+        <form id="rightPanel" class="panel" [formGroup]="rightPartForm">
+          <div class="popup-category">
+            <div class="category-title">Image de profil</div>
+            <div id="ppUploadContainer">
+              <div id="ppContainer">
+                <img id="pp" [src]="img_thumbnail" alt="pp" #pp>
+              </div>
+              <input type="file" style="display: none" (change)="onFileChanged($event)" accept="image/*" #fileInput formControlName="pp">
+              <div id="ppUploadInput" (click)="fileInput.click()">
+                <mat-icon id="dl-icon" svgIcon="dl"></mat-icon>
+                Ajouter une image
+              </div>
+            </div>
+          </div>
+          <div class="popup-category">
+            <div class="category-title">Pseudo</div>
+            <input type="text" placeholder="Morty" formControlName="pseudo"/>
+          </div>
+          <div class="popup-category">
+            <div class="category-title">Ville</div>
+            <input type="text" placeholder="Paris" formControlName="city"/>
+          </div>
+          <div class="popup-category">
+            <div class="category-title">Biographie</div>
+            <textarea id="bioArea" placeholder="Exprimez-vous" formControlName="bio"></textarea>
+          </div>
+          <div class="popup-category" style="margin-top: 30px" (click)="submit()" *ngIf="!sended">
+            <button class="publishBtn mat-elevation-z2" [ngClass]="rightPartForm.status === 'VALID' ? '' : 'invalid'">Soumettre</button>
+          </div>
+        </form>
+      </form>
+  </div>
+</div>

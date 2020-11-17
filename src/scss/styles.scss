@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~bootstrap/scss/bootstrap';
+@import '~angular2-toaster/toaster';
+@import 'variables';
+
+// @import 'https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.15/css/perfect-scrollbar.min.css';
+
+
+html, body {
+  margin: 0px;
+  height: 100%;
+  background-color: $gris_clair;
+}
+
+p, span {
+  word-break: break-all;
+}
+
+.placeEditPopup {
+  overflow-y: scroll;
+}
+
+.sub-header-container {
+  position:absolute;
+  margin-top:50px;
+  min-height: calc(100% - 50px);
+  height: auto;
+  width: 100%;
+  background-color: #E0E0E0
+}
+
+/* CSS for the mapboxgl popup */
+
+.mapboxgl-popup-content {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  height: 320px;
+  padding: 0px;
+}
+
+/* Toast CSS */
+
+#toast-container {
+  top: 120px !important;
+}
+
+/* Mat-Dialog Global Css */
+
+.cdk-overlay-container {
+  z-index: 2000 !important;
+}
+
+mat-dialog-container {
+  padding: unset !important;
+}

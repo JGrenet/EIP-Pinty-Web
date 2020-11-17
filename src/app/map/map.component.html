@@ -1,0 +1,8 @@
+<header-cmpt></header-cmpt>
+<div class="sub-header-container" style="height: calc(100% - 50px);">
+  <app-searchbox (new_results)="getSearchResults($event)" (item_selected)="selectedItem($event)" (userCenter)="geoCenter($event)"></app-searchbox>
+  <div id="map" style="">
+
+  </div>
+</div>
+

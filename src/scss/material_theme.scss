@@ -1,0 +1,10 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$pinty-app-primary: mat-palette(#998DA0);
+$pinty-app-accent: mat-palette(#BAB2BF);
+
+$pinty-app-theme: mat-light-theme($pinty-app-primary, $pinty-app-accent);
+
+@include angular-material-theme($pinty-app-theme);

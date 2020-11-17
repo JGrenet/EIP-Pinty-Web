@@ -1,0 +1,431 @@
+@import "../../scss/variables";
+@import "~bootstrap/scss/bootstrap-reboot";
+
+#main-container {
+  margin-top: 150px;
+
+  @include media-breakpoint-down(md) {
+    margin-top: 130px;
+  }
+}
+
+#profileDiv {
+  background-color: $violet_main;
+  padding: 15px;
+}
+
+#profilePic-container {
+  height: 100px;
+  width: 100%;
+}
+
+#profilePic {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+#profileName-container {
+  width: 100%;
+  height: 150px;
+  text-align: center;
+  position: relative;
+  padding-top: 10px;
+}
+
+#profileName {
+  font-size: 14px;
+  color: $gris_sombre;
+  display: block;
+}
+
+#mapBtn {
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+  width : 100px;
+  height: 20px;
+  background-color: $violet_sombre;
+  color: $gris_clair;
+  font-size: 11px;
+  border: none;
+  border-radius: 10px;
+  line-height: 22px;
+}
+
+.aboBtn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width : 100px;
+  height: 20px;
+  background-color: $violet_sombre;
+  color: $gris_clair;
+  font-size: 11px;
+  border: none;
+  border-radius: 10px;
+  line-height: 22px;
+}
+
+.placeAboBtn-sub {
+  color: $violet_sombre;
+  background-color: $gris_sombre;
+}
+
+.placeAboBtn-unsub {
+  color: $gris_clair;
+  background-color: $violet_sombre;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#profileBio-container {
+  width: 100%;
+  padding-top: 15px;
+  margin-bottom: 20px;
+}
+
+#profileBio-Title {
+  color: $violet_clair;
+  font-size: 14px;
+}
+
+#profileBio-Content {
+  margin-top: 10px;
+  color: $violet_sombre;
+  font-size: 11px;
+  text-align: justify;
+  margin-bottom: unset;
+}
+
+#profileCity-container {
+  width: 100%;
+  margin-top: 15px;
+  height: 25px;
+}
+
+#profileCity-container mat-icon{
+  height: 20px;
+  width: 20px;
+  color: $violet_sombre;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#profileCity-text {
+  color: $violet_sombre;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+#navbar-container {
+  height: 35px;
+  @include media-breakpoint-down(md) {
+    height: 90px;
+  }
+}
+
+.navbtn {
+  height: 35px;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 13px;
+  background-color: $white;
+  color: $violet_main;
+  margin-right: 20px;
+  border: none;
+  min-width: 100px;
+  @include media-breakpoint-down(md) {
+    margin-bottom: 20px;
+  }
+}
+
+.navbtn:hover {
+  cursor: pointer;
+}
+
+#navbar-container .selected {
+  background-color: $violet_main;
+  color: $white;
+}
+
+#navbar-container .disabled {
+  background-color: $gris_sombre;
+}
+
+#reviewContainer {
+  margin-top: 30px;
+}
+
+.reviewItem {
+  width: 260px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  padding: 15px;
+  text-align: center;
+}
+
+.reviewItem:hover {
+  cursor: pointer;
+}
+
+.reviewItem.myReview {
+  background-color: $violet_main;
+  color: $gris_clair;
+}
+
+.reviewItem.otherReview {
+  background-color: white;
+  color: $violet_sombre;
+}
+
+.media-item {
+  width: 260px;
+  background-color: white;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+.mediaItemImg {
+  max-width: 100%;
+  height: auto;
+}
+
+.reviewItem-pictContainer {
+  height: 50px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.reviewItem-pictContainer img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.reviewItem-Name {
+  font-size: 13px;
+  color: inherit;
+}
+
+.reviewItem-Name:hover {
+  text-decoration-line: underline;
+  text-decoration-color: inherit;
+  cursor: pointer;
+}
+
+.reviewItem-rateContainer {
+  height: 16px;
+  width: 100%;
+}
+
+.reviewItem-date {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 12px;
+  color: $violet_clair;
+}
+
+.reviewItem-txt {
+  color: inherit;
+  text-align: initial;
+  font-size: 11px;
+  margin-top: 15px;
+  margin-bottom: unset;
+}
+
+.reviewItem-media {
+  margin-top: 15px;
+  width: 100%;
+  height: 130px;
+}
+
+.reviewItem-media img {
+  height: inherit;
+  width: inherit;
+}
+
+#tabSpinner {
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  transform: translateX(-50%);
+}
+
+#MediaContainer {
+  margin-top: 30px;
+}
+
+#pageSpinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#secondPart {
+  @include media-breakpoint-down(md) {
+    margin-top: 30px;
+  }
+}
+
+#placeInfoTitle {
+  font-size: 14px;
+  color: $violet_sombre;
+}
+
+#placeInfoDiv {
+  background-color: $white;
+  padding: 15px;
+}
+
+#placeInfoMapContainer {
+  padding-top: 10px;
+  height: 120px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $gris_sombre;
+}
+
+#placeInfoMap {
+  width: 100%;
+  height: 100%;
+}
+
+#placeInfoMain {
+  list-style: none;
+  padding: 0 0 10px 0;
+  margin: unset;
+  border-bottom: 1px solid $gris_sombre;
+}
+
+.placeInfoItem {
+  margin-top: 10px;
+  height: 15px;
+  display: flex;
+  flex-direction: row;
+  line-height: 15px;
+}
+
+.placeInfoItemTitle {
+  width: 100px;
+  height: 100%;
+  font-size: 12px;
+  text-align: left;
+  color: $violet_sombre;
+}
+
+.placeInfoItemContent {
+  height: 100%;
+  width: calc(100% - 80px);
+  font-size: 12px;
+  text-align: right;
+  color: $violet_clair;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#placeInfoHours {
+  list-style: none;
+  padding: unset;
+  margin: unset;
+}
+
+#depotAvisBtn {
+  width: 150px;
+  height: 25px;
+  text-align: center;
+  background-color: $white;
+  border: none;
+  border-radius: 15px;
+  color: $violet_main;
+  line-height: 25px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+#editAvisBtn {
+  width: 150px;
+  height: 25px;
+  text-align: center;
+  background-color: $violet_main;
+  border: none;
+  border-radius: 15px;
+  color: $white;
+  line-height: 25px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+#supprAvisBtn {
+  margin-left: 10px;
+  width: 150px;
+  height: 25px;
+  text-align: center;
+  background-color: $white;
+  border: none;
+  border-radius: 15px;
+  color: $violet_main;
+  line-height: 25px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+#editAvisBtn:hover {
+  cursor: pointer;
+}
+
+#supprAvisBtn:hover {
+  cursor: pointer;
+}
+
+#depotAvisBtn:hover {
+  cursor: pointer;
+}
+
+#grid {
+  margin-top: 20px;
+}
+
+#depotIcon {
+  width: 16px;
+  height: 16px;
+  position:relative;
+  top: 5px;
+  color: $violet_main;
+}
+
+.noDataBandeau {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  line-height: 50px;
+  text-align: center;
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+#editIcon {
+  width: 16px;
+  height: 16px;
+  position:relative;
+  top: 5px;
+  color: $white;
+}
+
+#supprIcon {
+  width: 16px;
+  height: 16px;
+  position:relative;
+  top: 5px;
+  color: $violet_main;
+}

@@ -1,0 +1,64 @@
+<div id="search-box" class="mat-elevation-z2">
+  <div class="search-div">
+    <input type="text" placeholder="Search on the map">
+  </div>
+  <div class="loupe-div">
+    <button mat-icon-button class="search-action-button" (click)="ToggleResultDropdown()">
+      <mat-icon svgIcon="search" class="icon-prop" style="width:26px; height: 26px"></mat-icon>
+    </button>
+  </div>
+  <div class="autre-div">
+    <button mat-icon-button class="search-action-button" (click)="geoCenter()">
+      <mat-icon svgIcon="geolocation" class="icon-prop"></mat-icon>
+    </button>
+  </div>
+  <div id="resultDropdown" *ngIf="resultDropdown" class="search-dropdown mat-elevation-z1">
+    <ul id="result_liste">
+      <perfect-scrollbar>
+        <li class="result_item" *ngFor="let place of search_result; let i = index">
+          <div class="item_content" (click)="selectItem(i)">
+            <div class="item_picture"></div>
+            <div class="item_info_container">
+              <div class="item_info_sub" style="margin-left: 1px;position: relative">
+                <div style="width: 170px; display: flex">
+                  <span class="place_title">{{place.title}}</span>
+                  <div class="place_type_icon">
+                    <mat-icon class="place_type_icon" svgIcon="bar"></mat-icon>
+                  </div>
+                </div>
+                <div class="place_compat_score">
+                  <mat-icon class="compat_score_icon" svgIcon="palette" color="accent"></mat-icon>
+                  <span class="compat_score">{{place.compat_score}}%</span>
+                </div>
+              </div>
+              <div class="item_info_sub">
+                <div style="height:100%; width: 170px" >
+                  <mat-icon class="note_icon" svgIcon="full_star"></mat-icon>
+                  <mat-icon class="note_icon" svgIcon="full_star"></mat-icon>
+                  <mat-icon class="note_icon" svgIcon="full_star"></mat-icon>
+                  <mat-icon class="note_icon" svgIcon="star"></mat-icon>
+                  <mat-icon class="note_icon" svgIcon="star"></mat-icon>
+                </div>
+                <div style="width: 50px">
+                  <mat-icon class="friend_activity_icon" svgIcon="target"></mat-icon>
+                </div>
+              </div>
+              <div class="item_info_sub">
+                <mat-icon style="height: 16px; width: 16px" svgIcon="place"></mat-icon>
+                <span class="place_address">{{place.address}}</span>
+              </div>
+              <div class="item_info_sub" style="margin-left: 2px">
+                <span style="font-size: 11px">{{place.distance}}m</span>
+              </div>
+            </div>
+            <div class="info_button_container">
+              <button class="info_button_button" mat-icon-button>
+                <mat-icon style="width: 36px; height: 36px" svgIcon="big_assignment"></mat-icon>
+              </button>
+            </div>
+          </div>
+        </li>
+      </perfect-scrollbar>
+    </ul>
+  </div>
+</div>

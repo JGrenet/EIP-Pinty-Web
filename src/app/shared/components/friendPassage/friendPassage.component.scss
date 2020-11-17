@@ -1,0 +1,20 @@
+.fimgContainer {
+  height: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.fimg {
+  border-radius: 50%;
+  vertical-align: baseline;
+  position: absolute
+}
+
+.fimgText {
+  font-size: 9px;
+  color: #998DA0;
+  position: absolute;
+  width: 100px;
+  left: 65px;
+  top: 4px;
+}

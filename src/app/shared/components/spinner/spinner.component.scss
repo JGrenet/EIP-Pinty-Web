@@ -1,0 +1,38 @@
+@import "../../../../scss/variables";
+
+#container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+#block1 {
+  top: 0;
+  left: 0;
+  background-color: $violet_main;
+}
+
+#block2 {
+  top: 0;
+  left: 0;
+  background-color: $violet_main;
+}
+
+#block3 {
+  top: 0;
+  left: 0;
+  background-color: $violet_main;
+}
+
+#block4 {
+  top: 0;
+  left: 0;
+  background-color: $violet_main;
+}
+
+.block {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #63585E;
+}

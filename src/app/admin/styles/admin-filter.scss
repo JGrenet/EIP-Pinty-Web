@@ -1,0 +1,70 @@
+@import "../../../scss/variables";
+@import "../../../../node_modules/bootstrap/scss/bootstrap-reboot";
+
+/* Filter CSS */
+
+#contentContainer {
+  padding: 20px 50px 50px 50px;
+  width: 100%;
+}
+
+#filterDiv {
+  margin-top: 20px;
+  margin-left: 50px;
+  background-color: white;
+  width: 710px;
+  padding: 20px;
+}
+
+.filterInput:nth-child(3n-1), .filterInput:nth-child(3n+0) {
+  margin-left: 30px;
+}
+
+.filterInput:nth-child(+n+4) {
+  margin-top: 20px;
+}
+
+.filterInput {
+  border: none;
+  border-bottom: 1px solid $violet_main;
+  color: $violet_main;
+  padding-left: 10px;
+  width: 200px;
+  height: 30px;
+  font-size: 15px;
+  background-color: $white;
+}
+
+.filterSelectInput {
+  padding-left: 6px !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url('/assets/icon/arrow-down-violet.svg') no-repeat 95%;
+  fill: $violet_main;
+}
+
+#filterBtn {
+  margin-top: 25px;
+  margin-left: 50px;
+  width: 100px;
+  height: 30px;
+  line-height: 27px;
+  text-align: center;
+  border-radius: 15px;
+  border: 1px solid $violet_main;
+  color: $violet_main;
+  background-color: $gris_clair;
+  font-size: 15px;
+}
+
+#filterBtn.selected {
+  background-color: $violet_main;
+  color: $gris_clair;
+}
+
+#filterBtn:hover {
+  background-color: $violet_main;
+  color: $gris_clair;
+  cursor: pointer;
+}

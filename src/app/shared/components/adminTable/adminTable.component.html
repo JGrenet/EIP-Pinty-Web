@@ -1,0 +1,21 @@
+<table id="content" class="mat-elevation-z1">
+  <thead *ngIf="tableValues.results.length > 0">
+  <tr>
+    <th *ngFor="let sampleObjectKey of objectKeys(tableValues.results[0]); let i = index" (click)="filterBy(i)"
+        [ngClass]="[objectValues(this.catFiltersConfig)[i][1] === 'up' ? 'filter-up' : '',
+        objectValues(this.catFiltersConfig)[i][1] === 'down' ? 'filter-down' : '']">
+      {{sampleObjectKey | uppercase }}
+    </th>
+    <th *ngIf="canEdit || canDelete">ACTIONS</th>
+  </tr>
+  </thead>
+  <tbody *ngIf="tableValues.results.length > 0">
+    <tr *ngFor="let sampleObject of tableValues.results">
+      <td *ngFor="let sampleObjectValue of objectValues(sampleObject)">{{sampleObjectValue}}</td>
+      <td *ngIf="canEdit || canDelete">
+        <button *ngIf="canEdit" (click)="editBtn(sampleObject.id)">Editer</button>
+        <button *ngIf="canDelete" (click)="deleteBtn(sampleObject.id)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

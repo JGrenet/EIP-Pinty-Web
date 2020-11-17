@@ -1,0 +1,82 @@
+<div id="main-container" class="container" *ngIf="pageLoaded">
+  <div class="row">
+    <div class="col-lg-3 col-md-4">
+      <div class="row">
+        <div class="col-12 ">
+          <div id="profileDiv" class="mat-elevation-z2">
+            <div *ngIf="isMe" id="editProfileBtn" class="mat-elevation-z2" (click)="editProfile()">
+              <mat-icon id="editIcon" svgIcon="edit"></mat-icon>
+            </div>
+            <div id="profilePic-container">
+              <img id="profilePic" class="mat-elevation-z2" src="{{userProfile.image}}">
+            </div>
+            <div id="profileName-container">
+              <span id="profileName">{{userProfile.username}}</span>
+              <button id="aboAdd" *ngIf="!isMe && !isAbo" class="aboBtn mat-elevation-z2" (click)="addFriend()">Ajouter</button>
+              <button id="aboAdded" *ngIf="!isMe && isAbo" class="aboBtn mat-elevation-z2" (click)="removeFriend()">Ajouté</button>
+            </div>
+            <div id="profileBio-container">
+              <span id="profileBio-Title">Bio</span>
+              <p id="profileBio-Content">
+                {{userProfile.description}}
+              </p>
+            </div>
+            <div id="profileCity-container">
+              <mat-icon svgIcon="pin"></mat-icon>
+              <span id="profileCity-text">{{userProfile.city}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="secondPart" class="col-lg-9 col-md-8">
+      <div class="row">
+        <div id="navbar-container" class="col-12">
+          <button class="navbtn mat-elevation-z2" (click)="switchPanel('review')" [ngClass]="{'selected': reviewPanel}">Avis</button>
+          <button class="navbtn mat-elevation-z2" (click)="switchPanel('placeFollowed')" [ngClass]="{'selected': placeFollowedPanel}">Lieux Suivi</button>
+        </div>
+        <div id="reviewContainer" class="col-12" *ngIf="reviewPanel">
+          <ng-masonry-grid #mygrid [masonryOptions]="myOptions" (onNgMasonryInit)="onNgMasonryInit($event)">
+            <ng-masonry-grid-item class="reviewItem mat-elevation-z2" *ngFor="let review of reviews.results; let i = index;">
+              <span class="reviewItem-date">{{review.created | datePassed}}</span>
+              <div class="reviewItem-pictContainer">
+                <img src="{{review.place.image}}">
+              </div>
+              <span class="reviewItem-Name" [routerLink]="['/place/' + review.place.id]">{{review.place.name}}</span>
+              <div class="reviewItem-rateContainer">
+                <app-rater [rate]="review.rating" [color]="'#63585E'" [width]="16" [height]="16"></app-rater>
+              </div>
+              <p class="reviewItem-txt">
+                {{review.message}}
+              </p>
+              <div class="reviewItem-media" *ngIf="review.medias != undefined && review.medias.length > 0">
+                <img [src]="review.medias[0].url">
+              </div>
+            </ng-masonry-grid-item>
+          </ng-masonry-grid>
+          <div class="noDataBandeau mat-elevation-z2" *ngIf="reviews.results.length === 0 && tabSpinner === 'stop'">
+            Cet utilisateur n'as pas déposé d'avis
+          </div>
+        </div>
+        <div id="placeFollowed" class="col-12" *ngIf="placeFollowedPanel">
+          <ul id="placeContainer">
+            <li class="placeItem mat-elevation-z2" *ngFor="let sub of placeFollowed.results; let i = index;" [ngClass]="{'middlePlaceItem': (i + 1) % 3 == 2}"
+            [ngStyle]="isMe ? {'height' : '80px'} : ''">
+              <div class="placeTop">
+                <img src="{{sub.image}}">
+                <span class="placeTitle" [routerLink]="['/place/' + sub.id]">{{sub.name}}</span>
+                <button class="placeAboBtn placeAboBtn-sub mat-elevation-z2" *ngIf="sub.subscribed && isMe" (click)="unsubPlace(i)">Abonné</button>
+                <button class="placeAboBtn placeAboBtn-unsub mat-elevation-z2" *ngIf="!sub.subscribed && isMe" (click)="subPlace(i)">S'abonner</button>
+              </div>
+            </li>
+          </ul>
+          <div class="noDataBandeau mat-elevation-z2" *ngIf="placeFollowed.results.length === 0 && tabSpinner === 'stop'">
+            Cet utilisateur n'as pas d'abonnements
+          </div>
+        </div>
+      </div>
+      <app-spinner id="tabSpinner" [state]="tabSpinner"></app-spinner>
+    </div>
+  </div>
+</div>
+<app-spinner id="pageSpinner" [state]="pageSpinner"></app-spinner>

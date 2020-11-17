@@ -1,0 +1,63 @@
+<div class="container-fluid container-fluid-nav">
+  <div class="container container-nav">
+    <button class="btn-nav mat-elevation-z2" [ngClass]="{'selected': allSearch}" (click)="switchSearch('all')">Tous
+    </button>
+    <button class="btn-nav mat-elevation-z2" [ngClass]="{'selected': placesSearch && !allSearch}"
+            (click)="switchSearch('places')">
+      Lieux
+    </button>
+    <button class="btn-nav mat-elevation-z2" [ngClass]="{'selected': profilesSearch && !allSearch}"
+            (click)="switchSearch('profiles')">
+      Profils
+    </button>
+  </div>
+</div>
+
+<div class="container container-result">
+  <div class="row row-result" id="row-places" *ngIf="placesSearch">
+    <div class="col col-result" id="col-places">
+      <div class="sub-col-result">
+        <div *ngIf="placesSearch && placesResult.results.length !== 0">
+          <h5 class="title-result">Resultats dans Lieux pour "{{ searchInput }}"</h5>
+          <ul class="list-group list-result" [ngStyle]="{ marginBottom: setListResultMargin() }">
+            <li class="list-group-item list-result-item"
+                *ngFor="let place of placesResult.results | slice: 0:placesLimit"
+                [routerLink]="['/place/' + place.id]">
+              <img class="item-logo" [src]="place.image" alt="Place logo">
+              <span class="item-title">{{ place.name }}</span>
+            </li>
+          </ul>
+        </div>
+        <button class="btn btn-more" *ngIf="placesSearch && placesResult.results.length > placesLimit"
+                (click)="switchSearch('places')">Voir plus
+        </button>
+      </div>
+      <span class="info-no-result" *ngIf="placesSearch && placesResult.results.length == 0">
+        Aucun résultat dans Lieux pour "{{ searchInput }}"
+      </span>
+    </div>
+  </div>
+  <div class="row row-result" id="row-profiles" *ngIf="profilesSearch">
+    <div class="col col-result" id="col-profiles">
+      <div class="sub-col-result">
+        <div *ngIf="profilesSearch && profilesResult.results.length !== 0">
+          <h5 class="title-result">Resultats dans Profils pour "{{ searchInput }}"</h5>
+          <ul class="list-group list-result" [ngStyle]="{ marginBottom: setListResultMargin() }">
+            <li class="list-group-item list-result-item"
+                *ngFor="let profile of profilesResult.results | slice: 0:profilesLimit"
+                [routerLink]="['/user/' + profile.id]">
+              <img class="item-logo" [src]="profile.image" alt="User picture">
+              <span class="item-title">{{ profile.username }}</span>
+            </li>
+          </ul>
+        </div>
+        <button class="btn btn-more" *ngIf="profilesSearch && profilesResult.results.length > profilesLimit"
+                (click)="switchSearch('profiles')">Voir plus
+        </button>
+      </div>
+      <span class="info-no-result" *ngIf="profilesSearch && profilesResult.results.length == 0">
+        Aucun résultat dans Profils pour "{{ searchInput }}"
+      </span>
+    </div>
+  </div>
+</div>
